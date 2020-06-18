@@ -46,3 +46,7 @@ Route::delete('inventory/in/delete/{id}', 'InventoryInController@destroy');
 Route::get('inventory/out', 'InventoryOutController@index');
 Route::post('inventory/out/create', 'InventoryOutController@store');
 Route::delete('inventory/out/delete/{id}', 'InventoryOutController@destroy');
+
+// Report 
+
+Route::get('report/inventory', 'ReportController@index');

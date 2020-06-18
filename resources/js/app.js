@@ -7,6 +7,8 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
+import vuetify from './vuetify';
+
 
 Vue.use(VueRouter, VueAxios, axios);
 
@@ -25,7 +27,7 @@ import ProductRecipesCreate from './containers/ProductRecipes/Create.vue';
 import InventoryIn from './containers/Inventory/InventoryIn.vue';
 import InventoryOut from './containers/Inventory/InventoryOut.vue';
 import Login from './containers/Login/Login.vue';
-import vuetify from './vuetify';
+import Report from './containers/Report/Report.vue';
 
 // membuat router
 
@@ -89,6 +91,10 @@ const routes = [
         name: '/inventory/out',
         path: '/inventory/out',
         component: InventoryOut
+    }, {
+        name: '/report',
+        path: '/report',
+        component: Report
     },
     {
         name: 'login',

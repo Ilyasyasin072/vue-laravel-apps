@@ -8,6 +8,11 @@
       </v-card>
     </v-col>
     <v-col cols="12">
+      <router-link to="/report" class="mx-2" fab dark small color="primary">
+        <v-btn text style="width: 100%;" class="btn btn-info">Views All Report</v-btn>
+      </router-link>
+    </v-col>
+    <v-col cols="12">
       <v-card>
         <form @submit.prevent="posInventoryIn()">
           <v-card-text>

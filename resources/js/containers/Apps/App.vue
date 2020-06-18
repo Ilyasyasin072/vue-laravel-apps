@@ -13,9 +13,9 @@
       <router-link to="/products" class="mx-2" fab dark small color="primary">
         <v-btn text small>Products</v-btn>
       </router-link>
-      <router-link to="/product/recipes" class="mx-2" fab dark small color="primary">
+      <!-- <router-link to="/product/recipes" class="mx-2" fab dark small color="primary">
         <v-btn text small>Products Recipes</v-btn>
-      </router-link>
+      </router-link>-->
       <router-link to="/product/recipes/create" class="mx-2" fab dark small color="primary">
         <v-btn text small>Products Recipes Create</v-btn>
       </router-link>
@@ -31,14 +31,9 @@
       <router-link to="/inventory/out" class="mx-2" fab dark small color="primary">
         <v-btn text small>Inventory Out</v-btn>
       </router-link>
-      <router-link to="/login" class="mx-2" fab dark small color="primary">
+      <!-- <router-link to="/login" class="mx-2" fab dark small color="primary">
         <v-btn text small>Login</v-btn>
-      </router-link>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
+      </router-link>-->
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>

@@ -24,6 +24,9 @@
               <router-link class="mx-2" fab dark small color="primary" to="/products/create">
                 <v-btn text small>Create new products</v-btn>
               </router-link>
+              <router-link to="/product/recipes" class="mx-2" fab dark small color="primary">
+                <v-btn text small>Products Recipes Create</v-btn>
+              </router-link>
             </v-card-actions>
           </v-card>
         </v-col>
