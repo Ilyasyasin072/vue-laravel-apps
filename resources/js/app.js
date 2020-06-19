@@ -8,9 +8,12 @@ import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 import vuetify from './vuetify';
+import 'es6-promise/auto';
+import VueAuth from '@websanova/vue-auth';
+import auth from './auth';
 
 
-Vue.use(VueRouter, VueAxios, axios);
+Vue.use(VueRouter, VueAxios, axios, VueAuth, auth);
 
 // import file yang dibuat tadi
 import App from './containers/Apps/App.vue';
@@ -29,77 +32,121 @@ import InventoryOut from './containers/Inventory/InventoryOut.vue';
 import Login from './containers/Login/Login.vue';
 import Report from './containers/Report/Report.vue';
 
+axios.defaults.baseURL = `${process.env.MIX_APP_URL}/api/v1`;
+
 // membuat router
 
 const routes = [
     {
         name: 'dashboard',
         path: '/',
-        component: Dashboard
+        component: Dashboard,
+        meta: {
+            auth: undefined
+        }
     },
     {
         name: 'items',
         path: '/items',
-        component: Items
+        component: Items,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'items-create',
         path: '/items/create',
-        component: ItemsCreate
+        component: ItemsCreate,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'items-update',
         path: '/items/:id',
-        component: ItemsUpdate
+        component: ItemsUpdate,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'products',
         path: '/products',
-        component: Products
+        component: Products,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'products/create',
         path: '/products/create',
-        component: ProductsCreate
+        component: ProductsCreate,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'products/update',
         path: '/products/:id',
-        component: ProductsUpdate
+        component: ProductsUpdate,
+        meta: {
+            auth: false
+        }
     },
     {
         name: '/transaction',
         path: '/transaction',
-        component: Transaction
+        component: Transaction,
+        meta: {
+            auth: false
+        }
     },
     {
         name: '/product/recipes',
         path: '/product/recipes',
-        component: ProductRecipes
+        component: ProductRecipes,
+        meta: {
+            auth: false
+        }
     },
     {
         name: '/product/recipes/create',
         path: '/product/recipes/create',
-        component: ProductRecipesCreate
+        component: ProductRecipesCreate,
+        meta: {
+            auth: false
+        }
     },
     {
         name: '/inventory/in',
         path: '/inventory/in',
-        component: InventoryIn
+        component: InventoryIn,
+        meta: {
+            auth: false
+        }
     },
     {
         name: '/inventory/out',
         path: '/inventory/out',
-        component: InventoryOut
+        component: InventoryOut,
+        meta: {
+            auth: false
+        }
     }, {
         name: '/report',
         path: '/report',
-        component: Report
+        component: Report,
+        meta: {
+            auth: false
+        }
     },
     {
         name: 'login',
         path: '/login',
-        component: Login
+        component: Login,
+        meta: {
+            auth: false
+        }
     }
 ]
 

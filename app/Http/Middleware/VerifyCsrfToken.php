@@ -13,5 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'items/create',
+        'v1/auth/',
     ];
 }

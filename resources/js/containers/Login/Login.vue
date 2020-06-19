@@ -1,59 +1,109 @@
 <template>
-  <v-container>
-    <v-col cols="12">
-      <v-row>
-        <div class="alert alert-danger" v-if="error">
-          <p>There was an error, unable to sign in with those credentials.</p>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <div class="card card-default">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
+                        <div
+                            class="alert alert-danger"
+                            v-if="has_error && !success"
+                        >
+                            <p v-if="error == 'login_error'">
+                                Validation Errors.
+                            </p>
+                            <p v-else>
+                                Error, unable to connect with these credentials.
+                            </p>
+                        </div>
+                        <form
+                            autocomplete="off"
+                            @submit.prevent="login"
+                            method="post"
+                        >
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    class="form-control"
+                                    placeholder="user@example.com"
+                                    v-model="email"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control"
+                                    v-model="password"
+                                    required
+                                />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Signin
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form autocomplete="off" @submit.prevent="login" method="post">
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              class="form-control"
-              placeholder="user@example.com"
-              v-model="email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" v-model="password" required />
-          </div>
-          <button type="submit" class="btn btn-default">Sign in</button>
-        </form>
-      </v-row>
-    </v-col>
-  </v-container>
+    </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      email: null,
-      password: null,
-      error: false
-    };
-  },
-  mounted() {},
-  methods: {
-    login() {
-      //   var app = this;
-      //   this.$auth.login({
-      //     params: {
-      //       email: app.email,
-      //       password: app.password
-      //     },
-      //     success: function() {},
-      //     error: function(resp) {
-      //       alert(resp.response.data.msg);
-      //     },
-      //     rememberMe: true,
-      //     redirect: "/dashboard",
-      //     fetchUser: true
-      //   });
+    data() {
+        return {
+            email: null,
+            password: null,
+            success: false,
+            has_error: false,
+            error: ""
+        };
+    },
+    mounted() {
+        //
+    },
+    methods: {
+        login() {
+            //     // get the redirect object
+            //     var redirect = this.$auth.redirect();
+            //     var app = this;
+            //     this.$auth.login({
+            //         data: {
+            //             email: app.email,
+            //             password: app.password
+            //         },
+            //         success: function() {
+            //             // handle redirection
+            //             app.success = true;
+            //             const redirectTo = "/";
+            //             this.$router.push({ name: redirectTo });
+            //         },
+            //         error: function() {
+            //             app.has_error = true;
+            //             app.error = res.response.data.error;
+            //         },
+            //         rememberMe: true,
+            //         fetchUser: true
+            //     });
+            const urls = "http://127.0.0.1:8000/api/v1/auth/login";
+            const data = {
+                email: this.email,
+                password: this.password
+            };
+            axios
+                .post(urls, data)
+                .then(result => {
+                    this.$router.push({ name: "/" });
+                    console.log(result);
+                })
+                .catch(err => {
+                    has_error = err;
+                });
+        }
     }
-  }
 };
 </script>

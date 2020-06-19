@@ -26,6 +26,8 @@
     },
     "dependencies": {
         "@mdi/font": "^5.3.45",
+        "@websanova/vue-auth": "^3.2.1-beta",
+        "es6-promise": "^4.2.8",
         "import": "0.0.6",
         "laravel-echo": "^1.8.0",
         "pusher-js": "^6.0.3",
