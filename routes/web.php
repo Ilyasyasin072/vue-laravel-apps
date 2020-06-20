@@ -25,4 +25,4 @@ Route::post('/sender', function() {
 
 Route::get('/{any}', function() {
     return view('containers.pages.index');
-})->where('any', '.*');
+})->where('any', '^(?!api\/)[\/\w\.-]*');

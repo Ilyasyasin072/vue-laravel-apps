@@ -13,7 +13,6 @@ import VueAuth from '@websanova/vue-auth';
 import auth from './auth';
 
 
-Vue.use(VueRouter, VueAxios, axios, VueAuth, auth);
 
 // import file yang dibuat tadi
 import App from './containers/Apps/App.vue';
@@ -33,6 +32,8 @@ import Login from './containers/Login/Login.vue';
 import Report from './containers/Report/Report.vue';
 
 axios.defaults.baseURL = `${process.env.MIX_APP_URL}/api/v1`;
+
+Vue.use(VueRouter, VueAxios, axios, VueAuth, auth);
 
 // membuat router
 
@@ -151,7 +152,7 @@ const routes = [
 ]
 
 window.onload = function () {
-    const router = new VueRouter({ mode: 'history', routes: routes });
+    const router = new VueRouter({ mode: 'history', routes: routes, });
     const app = new Vue(Vue.util.extend({ router, vuetify }, App)).$mount("#app");
     return { app, router };
 }
