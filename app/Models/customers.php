@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class customers extends Model
 {
-    // models customers
+    // models customers a
     protected $table = 'customers';
 }
